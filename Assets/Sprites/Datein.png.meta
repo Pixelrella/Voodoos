@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 1c705e044d0384dbb9fd8f7abe41457d
+timeCreated: 1453117736
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cursor
+    21300002: Text1
+    21300004: ToggleText
+    21300006: Text4
+    21300008: LeftButton
+    21300010: RightButton
+    21300012: Text5
+    21300014: Datein_7
+    21300016: Datein_8
+    21300018: Text2
+    21300020: Datein_10
+    21300022: Text3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cursor
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2763
+        width: 745
+        height: 1203
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Text1
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 3569
+        width: 1478
+        height: 477
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 9, z: 0, w: 0}
+    - name: ToggleText
+      rect:
+        serializedVersion: 2
+        x: 2515
+        y: 3068
+        width: 1451
+        height: 963
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Text4
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 2111
+        width: 1498
+        height: 479
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LeftButton
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 2339
+        width: 585
+        height: 414
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RightButton
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 2412
+        width: 507
+        height: 340
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Text5
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 1627
+        width: 1498
+        height: 483
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Text2
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 3042
+        width: 1478
+        height: 477
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Datein_10
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 3558
+        width: 1478
+        height: 477
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Text3
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 2578
+        width: 1478
+        height: 477
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
