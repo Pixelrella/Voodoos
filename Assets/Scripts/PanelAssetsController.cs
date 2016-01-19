@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class PanelAssetsContoller : MonoBehaviour {
+public class PanelAssetsController : MonoBehaviour {
 
 
 	[SerializeField]

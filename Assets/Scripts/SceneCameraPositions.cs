@@ -2,15 +2,15 @@
 using UnityEngine.UI;
 using System.Collections;
 
-[RequireComponent (typeof (PanelAssetsContoller))]
+[RequireComponent (typeof (PanelAssetsController))]
+[RequireComponent (typeof (PanelCamerasController))]
 public class SceneCameraPositions : MonoBehaviour {
 
 	public static SceneCameraPositions instance;
 	
 	
 	[Header("Camera Settings")]
-	[SerializeField]
-	private Camera[] sceneCameras;
+
 	
 	[Header("UI Settings")]
 	[SerializeField]
@@ -24,7 +24,8 @@ public class SceneCameraPositions : MonoBehaviour {
 	private int currentPanel;
 	private int totalNumberOfPanels;
 
-	private PanelAssetsContoller panelAssetController;
+	private PanelAssetsController panelAssetController;
+	private PanelCamerasController panelCamerasController;
 		
 
 	public void MoveCameraToNextPosition () {
@@ -39,9 +40,8 @@ public class SceneCameraPositions : MonoBehaviour {
 	}
 
 	private void JumpToCurrentCamera () {
-		for (int i = 0; i < sceneCameras.Length; i++) {
-			sceneCameras [i].gameObject.SetActive(currentPanel == i);
-		}
+
+		panelCamerasController.JumpToCurrentCamera (currentPanel);
 	}
 
 	public void MoveToNextScene () {		
@@ -61,7 +61,6 @@ public class SceneCameraPositions : MonoBehaviour {
 	void Awake () {
 		MakeInstance ();
 		InitPanels ();
-		InitPanelAssets ();
 		InitUi ();
 	}
 
@@ -75,12 +74,21 @@ public class SceneCameraPositions : MonoBehaviour {
 	}
 
 	private void InitPanels () {		
-		currentPanel = 0;
-		totalNumberOfPanels = sceneCameras.Length - 1;
+
+		InitPanelCameras ();
+		InitPanelAssets ();
+
+		currentPanel = -1;
+		totalNumberOfPanels = panelCamerasController.GetTotalNumberOfPanels ();
+
+	}
+
+	private void InitPanelCameras () {	
+		panelCamerasController = GetComponent<PanelCamerasController> ();
 	}
 
 	private void InitPanelAssets () {
-		panelAssetController = GetComponent<PanelAssetsContoller> ();
+		panelAssetController = GetComponent<PanelAssetsController> ();
 		panelAssetController.InitPanelAssets (totalNumberOfPanels);
 	}
 
