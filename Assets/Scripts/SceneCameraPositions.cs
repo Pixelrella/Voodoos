@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
+[RequireComponent (typeof (PanelAssetsContoller))]
 public class SceneCameraPositions : MonoBehaviour {
 
 	public static SceneCameraPositions instance;
@@ -21,31 +21,36 @@ public class SceneCameraPositions : MonoBehaviour {
 	private Animator fadingAnimator;
 	private Image textDisplay;
 
-	private int currentScene;
-	private int maxScene;
+	private int currentPanel;
+	private int totalNumberOfPanels;
+
+	private PanelAssetsContoller panelAssetController;
 		
-	private Dictionary<int, GameObject[]> sceneSpecificAssets;
 
 	public void MoveCameraToNextPosition () {
 
-		ActivateCurrentSceneAssets ();
+		ActivateCurrentPanelAssets ();
 		JumpToCurrentCamera ();
 		UpdateTextToCurrentScene ();
 	}
 
+	private void ActivateCurrentPanelAssets () {
+		panelAssetController.ActivateCurrentPanelAssets (currentPanel);
+	}
+
 	private void JumpToCurrentCamera () {
 		for (int i = 0; i < sceneCameras.Length; i++) {
-			sceneCameras [i].gameObject.SetActive(currentScene == i);
+			sceneCameras [i].gameObject.SetActive(currentPanel == i);
 		}
 	}
 
 	public void MoveToNextScene () {		
-		currentScene ++;
+		currentPanel ++;
 		MoveMainCameraToCurrentScene ();
 	}
 	
 	public void MoveToLastScene () {		
-		currentScene--;
+		currentPanel--;
 		MoveMainCameraToCurrentScene ();
 	}
 
@@ -55,13 +60,9 @@ public class SceneCameraPositions : MonoBehaviour {
 
 	void Awake () {
 		MakeInstance ();
-		InitScenes ();
-		InitSceneAssets ();
+		InitPanels ();
+		InitPanelAssets ();
 		InitUi ();
-	}
-
-	void Start () {
-		MoveMainCameraToCurrentScene ();
 	}
 
 	private void MakeInstance () {
@@ -73,18 +74,14 @@ public class SceneCameraPositions : MonoBehaviour {
 		}
 	}
 
-	private void InitScenes () {		
-		currentScene = 0;
-		maxScene = sceneCameras.Length - 1;
+	private void InitPanels () {		
+		currentPanel = 0;
+		totalNumberOfPanels = sceneCameras.Length - 1;
 	}
 
-	private void InitSceneAssets () {
-
-		sceneSpecificAssets = new Dictionary<int, GameObject[]>();
-		for (int tagIndex = 0; tagIndex <= maxScene; tagIndex ++) {
-		
-			sceneSpecificAssets.Add(tagIndex, GameObject.FindGameObjectsWithTag("Scene"+tagIndex));
-		}
+	private void InitPanelAssets () {
+		panelAssetController = GetComponent<PanelAssetsContoller> ();
+		panelAssetController.InitPanelAssets (totalNumberOfPanels);
 	}
 
 	private void InitUi () {
@@ -94,16 +91,6 @@ public class SceneCameraPositions : MonoBehaviour {
 		textDisplay = GameObject.FindGameObjectWithTag ("TextDisplay").GetComponent<Image> ();
 
 		textDisplay.gameObject.SetActive(false);
-	}
-
-	private void ActivateCurrentSceneAssets () {
-	
-		for (int tagIndex = 0; tagIndex <= maxScene; tagIndex ++) {
-
-			for (int assetIndex = 0; assetIndex < sceneSpecificAssets[tagIndex].Length; assetIndex ++) {
-				sceneSpecificAssets[tagIndex][assetIndex].SetActive(tagIndex == currentScene);
-			}
-		}
 	}
 
 	private void MoveMainCameraToCurrentScene () {
@@ -119,16 +106,16 @@ public class SceneCameraPositions : MonoBehaviour {
 	}
 
 	private bool IsCurrentSceneOutOfUpperBound () {
-		return currentScene >= maxScene;
+		return currentPanel >= totalNumberOfPanels;
 	}
 
 	private bool IsCurrentSceneOutOfLowerBound () {
-		return currentScene <= 0;
+		return currentPanel <= 0;
 	}
 
 	private void UpdateTextToCurrentScene () {
 		textDisplay.gameObject.SetActive (true);
-		textDisplay.sprite = texts [currentScene];
+		textDisplay.sprite = texts [currentPanel];
 	}
 
 }
