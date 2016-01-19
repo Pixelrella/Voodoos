@@ -4,6 +4,6 @@ using System.Collections;
 public class FadeTrigger : MonoBehaviour {
 
 	public void MoveCameraToNextPosition () {
-		SceneCameraPositions.instance.MoveCameraToNextPosition ();
+		PanelTransitionController.instance.MoveCameraToNextPosition ();
 	}
 }
