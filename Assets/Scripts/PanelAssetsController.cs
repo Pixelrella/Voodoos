@@ -7,7 +7,7 @@ public class PanelAssetsController : MonoBehaviour {
 
 
 	[SerializeField]
-	private string tagPrefix = "Scene";
+	private string tagPrefix = "Panel";
 
 	private Dictionary<int, GameObject[]> panelSpecificAssets;
 	private int totalNumberOfPanels;
