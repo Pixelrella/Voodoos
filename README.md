@@ -5,12 +5,12 @@ Also, it will controll gameobjects that are only used in one specific comic scen
 The idea is that you can create any 3D comic with this Unity project.
 
 ## Setup
-The only things you have to do is:
-0. Add the ComisCore prefab to your scene.
-1. Panels:
+
+### Add the ComisCore prefab to your scene.
+### Panels:
 	Define the Panels of the comic by adding cameras (See PanelCamera gameobject, PanelTransitionController).
 	Tag all gameObjects that are panel specific and should not be displayed all the time. (The dafault tag prefix is "Scene", can be changed in the PanelAssetController component of PanelTransitionController).
-2. Captions:
+### Captions:
 	Add images for the caption displayed in each Scene (PanelTransitionController - UiController component).
 
 ## Test Scene
